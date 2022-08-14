@@ -36,6 +36,22 @@
       color: white;
     }
 
+    .ibrahim {
+        border: solid #0c94b3 2px;
+        color: white;
+        background-color: #0c94b3;
+        font-size: 20px;
+        padding: 10px;
+    }
+
+    .ibrahim:hover {
+        border: solid #0c94b3 2px;
+        color: white;
+        background-color: #0c94b3;
+        font-size: 20px;
+        padding: 10px;
+    }
+
     @media (max-width:786px) {
         .logo_div {
             width: 75px;
@@ -155,47 +171,35 @@
   </section> -->
     <!--/ service-->
     <!--cta-->
-    <section id="cta-1" class="section-padding ">
+    <section id="cta-1" class="section-padding">
+        <?php
+        $blogs = DB::table('blogs')
+            ->where('active', 1)
+            ->orderBy('updated_at', 'desc')
+            ->take(3)
+            ->get();
+        ?>
         <div class="container">
             <div class="row">
-              <div class="col-md-12">
-                <h2 class="ser-title" >Blogs</h2>
-                <hr class="botm-line">
-                <?php
-                $blogs = DB::table('blogs')->where('active',1)->get();
-                ?>
-                @foreach($blogs as $blog)
-                <div class="schedule-tab" style="width: 25%;">
-                    <div class="">
-                        <div class="mt-boxy-color"></div>
-                        <div class="medi-info">
-                            <h3>{{$blog->title}}</h3>
-                            <p>{{$blog->description}}</p>
-                            <a href="#" class="medi-info-btn">READ MORE</a>
+                <div class="col-md-12">
+                    <h2 class="ser-title" >Blogs</h2>
+                    <hr class="botm-line">
+                <div class="schedule-tab" style="width:100%">
+                    @foreach ($blogs as $blog)
+                        <div class="col-md-4 col-sm-4 bor-left col-lg-4">
+                            <div class="mt-boxy-color"></div>
+                            <div class="medi-info">
+                                <h3>{{ $blog->title }}</h3>
+                                <p>{{ $blog->description }}</p>
+                                <a href="#" class="medi-info-btn">READ MORE</a>
+                            </div>
                         </div>
-                    </div>
-                  
-                 
-
-                  <style>
-                    .ibrahim{
-                      border: solid #0c94b3 2px;
-                      color: white;
-                      background-color: #0c94b3;
-                      font-size: 20px;
-                      padding: 10px;
-                    }
-                    .ibrahim:hover{
-                      border: solid #0c94b3 2px;
-                      color: white;
-                      background-color: #0c94b3;
-                      font-size: 20px;
-                      padding: 10px;
-                    }
-                  </style>
-                
+                    @endforeach
                 </div>
-                @endforeach
+                <div style="text-align: center">
+                    <a href="#" class="medi-info-btn ibrahim">READ MORE</a>
+                  </div>
+            </div>
         </div>
     </section>
     <!--cta-->
