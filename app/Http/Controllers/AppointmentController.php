@@ -27,6 +27,15 @@ class AppointmentController extends Controller
     function penddings(Request $request){
         $reservation_from_patients = DB::table('appointment')->get();
       //  dd( $reservation_from_patients);
+      if ($request->ajax()) {
+        return response()->json($reservation_from_patients);
+    }
         return view('reservation.penddings')->with('reservations',$reservation_from_patients);
+
+
+    // return view('reservation.penddings', [
+    //    'reservation_from_patients' => $reservation_from_patients
+    // ]);
+        // return view('reservation.penddings')->with('reservations',$reservation_from_patients);
     }
 }

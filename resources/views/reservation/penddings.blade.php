@@ -57,7 +57,7 @@ Blogs
 																			</span>
 																		</a>
 																	</li>
-																	<li class="m-nav__section">
+																	{{-- <li class="m-nav__section">
 																		<span class="m-nav__section-text">
 																			Useful Links
 																		</span>
@@ -77,7 +77,7 @@ Blogs
 																				Support
 																			</span>
 																		</a>
-																	</li>
+																	</li> --}}
 																	<li class="m-nav__separator m-nav__separator--fit m--hide"></li>
 																	<li class="m-nav__item m--hide">
 																		<a href="#" class="btn btn-outline-danger m-btn m-btn--pill m-btn--wide btn-sm">
@@ -184,4 +184,10 @@ Blogs
 							</div>
 						</div>
 @endsection
-
+@section('js')
+<script src="../../../assets/demo/default/custom/components/datatables/base/data-local.js" type="text/javascript"></script>
+<link href="../../../assets/vendors/base/vendors.bundle.css" rel="stylesheet" type="text/css" />
+<link href="../../../assets/demo/default/base/style.bundle.css" rel="stylesheet" type="text/css" />
+{{-- <script src="../../../assets/vendors/base/vendors.bundle.js" type="text/javascript"></script> --}}
+{{-- <script src="../../../assets/demo/default/base/scripts.bundle.js" type="text/javascript"></script> --}}
+@endsection
